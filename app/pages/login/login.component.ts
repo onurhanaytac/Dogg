@@ -20,9 +20,9 @@ export class LoginComponent {
 	}
 
 	signIn(e) {
-		this.router.navigate(["/list"])
+		this.router.navigate(["/map"])
 
-		// this.userService.login(this.user).subscribe(
+  //   this.userService.login(this.user).subscribe(
   //     () => this.router.navigate(["/list"]),
   //     (error) => alert("Unfortunately we could not find your account.")
   //   );
@@ -31,7 +31,7 @@ export class LoginComponent {
 	signUp(e) {
 		this.isSignUp = !this.isSignUp;
 
-		// this.userService.register(this.user).subscribe(
+	//   this.userService.register(this.user).subscribe(
   //     success => {
   //       alert("Your account was successfully created.");
   //     },
