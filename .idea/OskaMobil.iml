@@ -3,13 +3,13 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
-        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../Dogg/gen" />
-        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../Dogg/gen" />
-        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../Dogg/AndroidManifest.xml" />
-        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../Dogg/res" />
-        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../Dogg/assets" />
-        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../Dogg/libs" />
-        <option name="PROGUARD_LOGS_FOLDER_RELATIVE_PATH" value="/../../Dogg/proguard_logs" />
+        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../OskaMobil/gen" />
+        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../OskaMobil/gen" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../OskaMobil/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../OskaMobil/res" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../OskaMobil/assets" />
+        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../OskaMobil/libs" />
+        <option name="PROGUARD_LOGS_FOLDER_RELATIVE_PATH" value="/../../OskaMobil/proguard_logs" />
       </configuration>
     </facet>
   </component>
