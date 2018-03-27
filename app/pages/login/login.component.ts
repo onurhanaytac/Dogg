@@ -13,6 +13,7 @@ import { Router } from "@angular/router";
 
 export class LoginComponent {
 	user: User;
+	logIn: boolean = true;
 	isSignUp = false;
 
 	constructor(private router: Router, private userService: UserService) {
@@ -20,7 +21,7 @@ export class LoginComponent {
 	}
 
 	signIn(e) {
-	this.router.navigate(["/workFile"])
+	this.router.navigate(["/workfile"])
 	// this.userService.login(this.user).subscribe(
 	//   (response) => {
 	//     this.router.navigate(["/map"])
@@ -42,5 +43,9 @@ export class LoginComponent {
   //     	alert("Unfortunately we were unable to create your account.");
   //     }
   //   );
+	}
+
+	ngOnInit() {
+		console.log(this.logIn)
 	}
 }

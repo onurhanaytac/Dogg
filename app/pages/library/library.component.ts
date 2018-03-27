@@ -2,13 +2,13 @@ import { Component } from "@angular/core";
 import { Page } from "ui/page";
 
 @Component({
-  selector: "workfile",
-  templateUrl: "./pages/workfile/workfile.html",
-  styleUrls: [ "./pages/workfile/workfile.css" ]
+  selector: "library",
+  templateUrl: "./pages/library/library.html",
+  styleUrls: [ "./pages/library/library.css" ]
 })
 
 
-export class WorkfileComponent {
+export class LibraryComponent {
 	constructor(private page: Page) {
 		page.actionBarHidden = true;
 	}
