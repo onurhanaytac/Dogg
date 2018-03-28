@@ -33,9 +33,13 @@ TextField {
 }
 
 .sideLabel {
-    padding: 10;
+    padding-left: 20;
+    padding-top: 10;
+    padding-bottom: 10;
+    padding-right: 10;
 }
 
 .sideLightGrayLabel {
     background-color: lightgray;
+    padding: 10;
 }
