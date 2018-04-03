@@ -26,11 +26,11 @@ export class MapComponent {
 
 	//Map events
 	onMapReady(event) {
-		console.log('Map Ready');
+		// console.log('Map Ready');
 
 		this.mapView = event.object;
 
-		console.log("Setting a marker...");
+		// console.log("Setting a marker...");
 
 		var marker = new Marker();
 		marker.position = Position.positionFromLatLng(-33.86, 151.20);
@@ -41,15 +41,15 @@ export class MapComponent {
 	}
 
 	onCoordinateTapped(args) {
-	  console.log("Coordinate Tapped, Lat: " + args.position.latitude + ", Lon: " + args.position.longitude, args);
+	  // console.log("Coordinate Tapped, Lat: " + args.position.latitude + ", Lon: " + args.position.longitude, args);
 	}
 
 	onMarkerEvent(args) {
-	  console.log("Marker Event: '" + args.eventName + "' triggered on: " + args.marker.title + ", Lat: " + args.marker.position.latitude + ", Lon: " + args.marker.position.longitude, args);
+	  // console.log("Marker Event: '" + args.eventName + "' triggered on: " + args.marker.title + ", Lat: " + args.marker.position.latitude + ", Lon: " + args.marker.position.longitude, args);
 	}
 
 	onCameraChanged(args) {
-		console.log("Camera changed: " + JSON.stringify(args.camera), JSON.stringify(args.camera) === this.lastCamera);
+		// console.log("Camera changed: " + JSON.stringify(args.camera), JSON.stringify(args.camera) === this.lastCamera);
 		this.lastCamera = JSON.stringify(args.camera);
 	}
 

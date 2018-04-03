@@ -46,6 +46,5 @@ export class LoginComponent {
 	}
 
 	ngOnInit() {
-		console.log(this.logIn)
 	}
 }
