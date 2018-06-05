@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oska\.android\build-cache\43b2b7bad71862ffb7e1c1f030d550979121632c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="746274223beb11b1cda7854d7eec3038695c2c93">
+        <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_057b3430c901e863f30e23985189895c43233f8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oska\.android\build-cache\4ee7e68dde41190dc1bc5d12a781ae5dc522a335\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="11329c8549979cb5036e0a1953d595a1cf38cba5">
+        <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_c8ef8eb3e43f8c018131a21dad287e4e8d030151.jar" />
+    </item>
+
+</items>

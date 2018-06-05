@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\avd_hide_password.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\f9a7f0b5f5c23220ff277e1146211147411f61cd\\output\\res\\drawable-v21\\avd_hide_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\fc58ffa7b0def15273d711262c299dabcac70d71\\output\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\design_password_eye.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\f9a7f0b5f5c23220ff277e1146211147411f61cd\\output\\res\\drawable-v21\\design_password_eye.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\fc58ffa7b0def15273d711262c299dabcac70d71\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\fc58ffa7b0def15273d711262c299dabcac70d71\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\fc58ffa7b0def15273d711262c299dabcac70d71\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\avd_show_password.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\f9a7f0b5f5c23220ff277e1146211147411f61cd\\output\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\pressable_item_background.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\ec1ecf4d99d04bedf451dba0c60bab223ecaae3d\\output\\res\\drawable-v21\\pressable_item_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\f9a7f0b5f5c23220ff277e1146211147411f61cd\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+    }
+]

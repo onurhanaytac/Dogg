@@ -1,0 +1,30 @@
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+	<StackLayout tkDrawerContent class="sideStackLayout">
+		<StackLayout class="sideTitleStackLayout">
+			<Label text="Navigation Menu"></Label>
+		</StackLayout>
+		<ScrollView>
+			<StackLayout #sideMenu class="sideStackLayout">
+				<Label #workfile 				text="Projeler"  class="menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'workfile'}" [nsRouterLink]="['/workfile']">></Label>
+				<StackLayout visibility="{{expandWorkfileSubMenu ? 'visible' : 'collapse'}}">
+					<Label #workfileDetails 		text="Sözleşme Bilgileri"  		class="menu-item sub-menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'workfileDetails'}" 		[nsRouterLink]="['/workfile', { outlets: { workfileOutlet: ['workfile-details'] } } ]">></Label>
+					<Label #contractualAmounts 	text="Yüzdeler"  							class="menu-item sub-menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'contractualAmounts'}"  [nsRouterLink]="['/workfile', { outlets: { workfileOutlet: ['contractual-amounts'] } } ]">></Label>
+					<Label #allowances 					text="Ödenekler"  						class="menu-item sub-menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'allowances'}" 					[nsRouterLink]="['/workfile', { outlets: { workfileOutlet: ['allowances'] } } ]">></Label>
+					<Label #progressPayments 		text="Gerçekleşmeler"  				class="menu-item sub-menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'progressPayments'}" 		[nsRouterLink]="['/workfile', { outlets: { workfileOutlet: ['progress-payments'] } } ]">></Label>
+					<Label #workAmendments 			text="İş Artışı ve Eksilişi"  class="menu-item sub-menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'workAmendments'}" 			[nsRouterLink]="['/workfile', { outlets: { workfileOutlet: ['work-amendments'] } } ]">></Label>
+					<Label #timeExtension 			text="Süre Uzatımı"  					class="menu-item sub-menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'timeExtension'}" 			[nsRouterLink]="['/workfile', { outlets: { workfileOutlet: ['time-extension'] } } ]">></Label>
+				</StackLayout>
+
+	      <Label #searchWorkitem 	text="Poz Arama" class="menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'searchWorkitem'}" [nsRouterLink]="['/search-workitem']">></Label>
+	      <Label #library 				text="Kütüphane" class="menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'library'}" 				[nsRouterLink]="['/library']">></Label>
+	      <Label #help 						text="Yardım"    class="menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'help'}" 					[nsRouterLink]="['/help']">></Label>
+				<Label #administration 	text="Yönetim"   class="menu-item" [ngClass]="{'selected-menu-item': selectedMenuItemId == 'administration'}" [nsRouterLink]="['/administration']">></Label>
+			</StackLayout>
+		</ScrollView>
+		<!-- <Label text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" (tap)="onCloseDrawerTap()"></Label> -->
+	</StackLayout>
+	<StackLayout tkMainContent>
+		<Button text="OPEN DRAWER" visibility="{{logIn ? 'collapse' : 'visible'}}" (tap)="openDrawer()" position="right" class="drawerContentButton"></Button>
+		<router-outlet></router-outlet>
+	</StackLayout>
+</RadSideDrawer>
