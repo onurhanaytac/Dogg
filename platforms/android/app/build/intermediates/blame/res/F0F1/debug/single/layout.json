@@ -52,12 +52,12 @@
         "source": "C:\\Users\\Oska\\.android\\build-cache\\fc58ffa7b0def15273d711262c299dabcac70d71\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
-        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\navigation_drawer_content.xml",
-        "source": "C:\\Users\\Oska\\.android\\build-cache\\4ee7e68dde41190dc1bc5d12a781ae5dc522a335\\output\\res\\layout\\navigation_drawer_content.xml"
-    },
-    {
         "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\design_navigation_item_separator.xml",
         "source": "C:\\Users\\Oska\\.android\\build-cache\\f9a7f0b5f5c23220ff277e1146211147411f61cd\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\navigation_drawer_content.xml",
+        "source": "C:\\Users\\Oska\\.android\\build-cache\\4ee7e68dde41190dc1bc5d12a781ae5dc522a335\\output\\res\\layout\\navigation_drawer_content.xml"
     },
     {
         "merged": "C:\\Users\\Oska\\Documents\\GitCodes\\HakedisMobil\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0F1\\debug\\layout\\notification_action_tombstone.xml",

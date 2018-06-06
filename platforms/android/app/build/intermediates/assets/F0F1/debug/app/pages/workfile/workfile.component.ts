@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Page } from "ui/page";
 import { Data } from "../../shared/data";
+import { ObservableArray, ChangedData, ChangeType } from "tns-core-modules/data/observable-array";
 
 @Component({
   selector: "workfile",
@@ -20,5 +21,10 @@ export class WorkfileComponent {
 
 	ngOnInit() {
 		console.dir(this._workFileSummary);
+	}
+
+	onPullToRefreshInitiated(e) {
+		console.log("refresh");
+		e.object.notifyPullToRefreshFinished();
 	}
 }

@@ -1,6 +1,13 @@
-<GridLayout rows="auto auto" columns="* *" class="m-5">
-  <Label class="h3 m-15" [text]="'Güncel olmayan pozları göster'" textWrap="true" row="0" col="0" style="width: 620px;"></Label>
-  <Switch class="m-15" checked="false" (checkedChange)="onFirstChecked($event)" row="0" col="1"></Switch>
-  <Label class="h3 m-15" [text]="'Yapım şartlarını dahil et'" textWrap="true" row="1" col="0"></Label>
-  <Switch class="m-15" checked="true" (checkedChange)="onSecondChecked($event)" row="1" col="1"></Switch>
+<GridLayout rows="auto, auto, *" cols="*, auto">
+	<Label  row="0" col="0" cssClass="field" text="Güncel olmayan pozları göster" style="padding: 20px 20px 20px 40px; margin: 20px;"></Label>
+	<Switch row="0" col="1" cssClass="field-value" checked="false" style="padding: 20px 20px 20px 40px; margin: 20px;"></Switch>
+
+	<Label  row="1" col="0" cssClass="field" text="Yapım şartlarını dahil et" style="padding: 20px 20px 20px 40px; margin: 20px;"></Label>
+	<Switch row="1" col="1" cssClass="field-value" checked="true" style="padding: 20px 20px 20px 40px; margin: 20px;"></Switch>
+
+	<ScrollView row="2">
+		<StackLayout>
+			<OskaTree [properties]="_properties" [data]="_data"></OskaTree>
+		</StackLayout>
+	</ScrollView>
 </GridLayout>

@@ -3,12 +3,48 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\Oska\.android\build-cache\f9293452004dfdea972a99f3f49296f853a39e6e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="4d4d98a0428b2e620e6b4a228ef9f7cb2f0debd2">
+        <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_820964b9c0f8d1129fe4e56fbca584e2574718e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Oska\.android\build-cache\43b2b7bad71862ffb7e1c1f030d550979121632c\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.3"
         sha1="746274223beb11b1cda7854d7eec3038695c2c93">
         <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_057b3430c901e863f30e23985189895c43233f8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="8a6536b4f43a7bb96fca7d3fc7c05095040fd72b">
+        <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_82f125afccbd73b58602c3760d465e15e89e9720.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oska\.android\build-cache\d7dad16d306fd11e55c0c4adb65dd73f27212dd4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="d8fe6d91310b54734f454dd490c3c869f6290576">
+        <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_c2602647e92b4e22ecdc82dd5f3b6e2e8e66acc4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="8d813c05361147f6f515f749df19223cd6256314">
+        <dex dex="C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\build\intermediates\pre-dexed\F0F1\debug\classes_0438292ae3438ca6487ad7ffb3766a6894b2f3b3.jar" />
     </item>
     <item
         is-multidex="false"

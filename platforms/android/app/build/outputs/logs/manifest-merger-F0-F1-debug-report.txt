@@ -30,14 +30,10 @@ ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\s
 		ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:11:3-31
 uses-sdk
 ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:13:2-15:34
-MERGED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Oska\.android\build-cache\06f5b746ac55e5298a8c46e91f2faba2fda8e416\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Oska\.android\build-cache\a906221e1dc1fc6ab1f759f4e38a7e72921d80bf\output\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Oska\.android\build-cache\e30181e9cb33640a23ea6ea6af523727b08a8d63\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Oska\.android\build-cache\e98e93d0f197287d10293324de6fa53582a26ffe\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Oska\.android\build-cache\914c8292ec9e9627bd77c8f3e863475292491855\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Oska\.android\build-cache\2cac6c01ee804fb7b7ebc460e95e4948e20d6a69\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps-license:12.0.1] C:\Users\Oska\.android\build-cache\136327fdde8f8c01e5005d41ee9a1ff19ec1ecce\output\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Oska\.android\build-cache\f9293452004dfdea972a99f3f49296f853a39e6e\output\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Oska\.android\build-cache\d7dad16d306fd11e55c0c4adb65dd73f27212dd4\output\AndroidManifest.xml:20:5-44
 MERGED from [:nativescript-optimized:] C:\Users\Oska\.android\build-cache\43b2b7bad71862ffb7e1c1f030d550979121632c\output\AndroidManifest.xml:7:5-9:41
 MERGED from [:TNSListView-release:] C:\Users\Oska\.android\build-cache\ec1ecf4d99d04bedf451dba0c60bab223ecaae3d\output\AndroidManifest.xml:7:5-9:41
 MERGED from [:TNSSideDrawer-release:] C:\Users\Oska\.android\build-cache\4ee7e68dde41190dc1bc5d12a781ae5dc522a335\output\AndroidManifest.xml:7:5-9:41
@@ -76,13 +72,13 @@ ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\s
 		ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:18:19-75
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:19:2-63
-MERGED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:19:19-61
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:21:2-75
 MERGED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:21:2-75
-MERGED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:23:5-79
 	android:name
 		ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:21:19-73
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
@@ -93,14 +89,10 @@ MERGED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\
 application
 ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:24:2-47:16
 MERGED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:24:2-47:16
-MERGED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:30:5-20
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Oska\.android\build-cache\06f5b746ac55e5298a8c46e91f2faba2fda8e416\output\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Oska\.android\build-cache\a906221e1dc1fc6ab1f759f4e38a7e72921d80bf\output\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Oska\.android\build-cache\e30181e9cb33640a23ea6ea6af523727b08a8d63\output\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Oska\.android\build-cache\e98e93d0f197287d10293324de6fa53582a26ffe\output\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Oska\.android\build-cache\914c8292ec9e9627bd77c8f3e863475292491855\output\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Oska\.android\build-cache\2cac6c01ee804fb7b7ebc460e95e4948e20d6a69\output\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-maps-license:12.0.1] C:\Users\Oska\.android\build-cache\136327fdde8f8c01e5005d41ee9a1ff19ec1ecce\output\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Oska\.android\build-cache\f9293452004dfdea972a99f3f49296f853a39e6e\output\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Oska\.android\build-cache\d7dad16d306fd11e55c0c4adb65dd73f27212dd4\output\AndroidManifest.xml:22:5-26:19
 MERGED from [:widgets-release:] C:\Users\Oska\.android\build-cache\5b1c60c8d886c2512d1dbc3fa6a5b1cf439394d2\output\AndroidManifest.xml:11:5-12:19
 MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\Oska\.android\build-cache\f9a7f0b5f5c23220ff277e1146211147411f61cd\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oska\.android\build-cache\fc58ffa7b0def15273d711262c299dabcac70d71\output\AndroidManifest.xml:29:5-20
@@ -166,25 +158,25 @@ ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\s
 	android:name
 		ADDED from C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\AndroidManifest.xml:46:13-55
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:26:5-28:35
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:27:9-41
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:27:9-41
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:12.0.1] C:\Users\Oska\.android\build-cache\a98137692faaa0c4ba3f22fc9d26153a346e5001\output\AndroidManifest.xml:28:9-32
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Oska\.android\build-cache\b7c08b79bec879b1129469bf7797e3c0d5aed7d6\output\AndroidManifest.xml:28:9-32
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Oska\.android\build-cache\06f5b746ac55e5298a8c46e91f2faba2fda8e416\output\AndroidManifest.xml:23:9-26:75
+ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\AndroidManifest.xml:23:9-26:75
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Oska\.android\build-cache\06f5b746ac55e5298a8c46e91f2faba2fda8e416\output\AndroidManifest.xml:25:13-37
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\AndroidManifest.xml:25:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Oska\.android\build-cache\06f5b746ac55e5298a8c46e91f2faba2fda8e416\output\AndroidManifest.xml:26:13-72
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\AndroidManifest.xml:26:13-72
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Oska\.android\build-cache\06f5b746ac55e5298a8c46e91f2faba2fda8e416\output\AndroidManifest.xml:24:13-79
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Oska\.android\build-cache\466b7a89f0acc2755411dbc8dc569dbc304ec5e3\output\AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Oska\.android\build-cache\914c8292ec9e9627bd77c8f3e863475292491855\output\AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Oska\.android\build-cache\d7dad16d306fd11e55c0c4adb65dd73f27212dd4\output\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Oska\.android\build-cache\914c8292ec9e9627bd77c8f3e863475292491855\output\AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Oska\.android\build-cache\d7dad16d306fd11e55c0c4adb65dd73f27212dd4\output\AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Oska\.android\build-cache\914c8292ec9e9627bd77c8f3e863475292491855\output\AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Oska\.android\build-cache\d7dad16d306fd11e55c0c4adb65dd73f27212dd4\output\AndroidManifest.xml:24:13-58
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:26.0.0-alpha1] C:\Users\Oska\.android\build-cache\f9a7f0b5f5c23220ff277e1146211147411f61cd\output\AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Oska\.android\build-cache\fc58ffa7b0def15273d711262c299dabcac70d71\output\AndroidManifest.xml:25:5-27:41

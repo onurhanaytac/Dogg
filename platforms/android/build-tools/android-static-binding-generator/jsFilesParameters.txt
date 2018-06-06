@@ -6,10 +6,14 @@ C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\ass
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\administration\administration.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\help\help.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\library\library.component.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\library\account\account.component.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\library\search\search.component.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\library\search-filters\search-filters.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\login\login.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\map\list.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\map\map.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\search-workitem\search-workitem.component.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\shared-components\oska-tree\oska-tree.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\workfile\workfile.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\workfile\allowances\allowances.component.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\pages\workfile\contractual-amounts\contractual-amounts.component.js
@@ -86,6 +90,9 @@ C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\ass
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-angular\router\private-imports\router-url-tree.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-angular\value-accessors\base-value-accessor.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-angular\zone-js\dist\zone-nativescript.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-checkbox\checkbox-common.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-checkbox\checkbox.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-checkbox\angular\index.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-google-maps-sdk\map-view-common.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-google-maps-sdk\map-view.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-intl\index.js

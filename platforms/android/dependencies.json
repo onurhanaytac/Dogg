@@ -4,6 +4,10 @@
         "directory": "..\\..\\node_modules\\nativescript-angular"
     },
     {
+        "name": "nativescript-checkbox",
+        "directory": "..\\..\\node_modules\\nativescript-checkbox"
+    },
+    {
         "name": "nativescript-google-maps-sdk",
         "directory": "..\\..\\node_modules\\nativescript-google-maps-sdk"
     },

@@ -13,9 +13,17 @@ import { Data } from "../../../shared/data";
 export class SearchComponent {
 	public searchPhrase: string;
 	public _workFileSummary: any;
+	public _data: any;
+	public _properties: any;
 
 	constructor(private page: Page) {
 		this._workFileSummary = new Data().workFileSummary;
+		this._data = new Data().libraryBookAndFascicles;
+		this._properties = {
+			id: "LibraryFascicleId",
+			name: "Name",
+			children: "LibraryFascicles"
+		}
 	}
 
 	onSubmit(e) {
@@ -36,6 +44,6 @@ export class SearchComponent {
 }
 
 	ngOnInit() {
-		console.dir(this._workFileSummary)
+
 	}
 }

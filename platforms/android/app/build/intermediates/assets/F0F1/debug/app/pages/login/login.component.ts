@@ -21,15 +21,15 @@ export class LoginComponent {
 	}
 
 	signIn(e) {
-	this.router.navigate(["/workfile"])
-	// this.userService.login(this.user).subscribe(
-	//   (response) => {
-	//     this.router.navigate(["/map"])
-	//   },
-	//   (error) => {
-	//     console.dir(error);
-	//   }
-	// );
+		this.router.navigate(["/library"]);
+		// this.userService.login(this.user).subscribe(
+		//   (response) => {
+		//   	console.dir(response);
+		//   },
+		//   (error) => {
+		//     console.dir(error);
+		//   }
+		// );
 	}
 
 	signUp(e) {

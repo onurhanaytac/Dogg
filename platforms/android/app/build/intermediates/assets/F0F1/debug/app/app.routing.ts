@@ -14,12 +14,21 @@ import { WorkAmendmentsComponent } from "./pages/workfile/work-amendments/work-a
 import { WorkGroupsComponent } from "./pages/workfile/work-groups/work-groups.component";
 import { WorkfileDetailsComponent } from "./pages/workfile/workfile-details/workfile-details.component";
 
+import { SearchFiltersComponent } from "./pages/library/search-filters/search-filters.component";
+import { SearchComponent } from "./pages/library/search/search.component";
+import { AccountComponent } from "./pages/library/account/account.component";
+
+import { OskaTreeComponent } from "./pages/shared-components/oska-tree/oska-tree.component";
 
 export const routes = [
   {
   	path: "",
-    redirectTo: "login",
+    redirectTo: "library",
     pathMatch: 'full'
+  },
+  {
+    path: "oska-tree",
+    component: OskaTreeComponent
   },
   {
     path: "administration",
@@ -31,7 +40,12 @@ export const routes = [
   },
   {
     path: "library",
-    component: LibraryComponent
+    component: LibraryComponent,
+    children: [
+      { path: "search-filters", component: SearchFiltersComponent, outlet: "search-filters-outlet" },
+      { path: "search",         component: SearchComponent,        outlet: "search-outlet" },
+      { path: "account",        component: AccountComponent,       outlet: "account-outlet" },
+    ]
   },
   {
     path: "login",
@@ -57,7 +71,6 @@ export const routes = [
       { path: "work-groups",          component: WorkGroupsComponent,         outlet: "workfileOutlet" },
       { path: "workfile-details",     component: WorkfileDetailsComponent,    outlet: "workfileOutlet" }
     ]
-
   }
 ];
 
@@ -75,5 +88,9 @@ export const navigatableComponents = [
   TimeExtensionComponent,
   WorkAmendmentsComponent,
   WorkGroupsComponent,
-  WorkfileDetailsComponent
+  WorkfileDetailsComponent,
+  SearchFiltersComponent,
+  SearchComponent,
+  AccountComponent,
+  OskaTreeComponent
 ];

@@ -18,11 +18,17 @@ import { SearchFiltersComponent } from "./pages/library/search-filters/search-fi
 import { SearchComponent } from "./pages/library/search/search.component";
 import { AccountComponent } from "./pages/library/account/account.component";
 
+import { OskaTreeComponent } from "./pages/shared-components/oska-tree/oska-tree.component";
+
 export const routes = [
   {
   	path: "",
     redirectTo: "library",
     pathMatch: 'full'
+  },
+  {
+    path: "oska-tree",
+    component: OskaTreeComponent
   },
   {
     path: "administration",
@@ -85,5 +91,6 @@ export const navigatableComponents = [
   WorkfileDetailsComponent,
   SearchFiltersComponent,
   SearchComponent,
-  AccountComponent
+  AccountComponent,
+  OskaTreeComponent
 ];

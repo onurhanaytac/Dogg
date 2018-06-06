@@ -24,6 +24,14 @@ TextField {
 	font-size: 14;
 }
 
+.listview-margin {
+    margin: 20px 0px 0px 40px;
+}
+
+.listview-padding {
+    padding: 10px 0px 10px 0px;
+}
+
 .drawerContentText {
     font-size: 13;
     padding: 10;

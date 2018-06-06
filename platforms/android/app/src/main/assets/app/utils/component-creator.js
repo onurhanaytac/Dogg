@@ -37,7 +37,7 @@ _.each(componentFiles, filename => {
 	var _path = path.join(createPath, dir[dir.length - 1] + filename);
 
 	if (!fs.existsSync(_path)){
-	  fs.writeFileSync(_path);
+	  fs.writeFileSync(_path, "");
 		console.log(_path, " file created!")
 	}
 });

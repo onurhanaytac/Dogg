@@ -1,0 +1,8 @@
+<StackLayout *ngFor="let item of _treeItems" class="list-group-item" style="margin: 0px 0px 0px 40px;">
+	<GridLayout cols="auto, *">
+		<CheckBox backgroundColor="blue" id="{{item.id}}" style="margin-right: 960px; margin-bottom: 20px;" width="30" col="0" *ngIf="properties.checkbox" [checked]="item.checked" (checkedChange)="onTapCheckbox($event, item)"></CheckBox>
+		<Label col="1" [text]="item.name" style="padding: 20px 20px 10px 0px; margin-left: 80px" (tap)="onTapLabel($event, item)"></Label>
+	</GridLayout>
+
+	<OskaTree [properties]="childProperties" [data]="item.children" [dataSource]="dataSource"></OskaTree>
+</StackLayout>

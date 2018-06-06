@@ -1,10 +1,12 @@
 import { NgModule } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
@@ -28,7 +30,9 @@ registerElement("MapView", () => require("nativescript-google-maps-sdk").MapView
     NativeScriptRouterModule,
     NativeScriptRouterModule.forRoot(routes),
     NativeScriptUIListViewModule,
-    NativeScriptUISideDrawerModule
+    NativeScriptUISideDrawerModule,
+    NativeScriptHttpClientModule,
+    TNSCheckBoxModule
   ],
   declarations: [
     AppComponent,

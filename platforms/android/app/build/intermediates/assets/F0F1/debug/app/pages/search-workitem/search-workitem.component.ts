@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, } from "@angular/core";
 import { Page } from "ui/page";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "search-workitem",
@@ -9,8 +10,7 @@ import { Page } from "ui/page";
 
 
 export class SearchWorkitemComponent {
-	constructor(private page: Page) {
-		page.actionBarHidden = true;
+	constructor(private page: Page, private _router: Router) {
 	}
 
 	ngOnInit() {
