@@ -2,23 +2,28 @@ import { Component, Input, Output, EventEmitter, HostListener, OnInit, ElementRe
 import { _ } from "lodash";
 import { Frame, topmost } from "tns-core-modules/ui/frame";
 import { Color } from 'color';
+import { OskaTreeDataSourceService } from './oska-tree-datasource.service';
+
 
 @Component({
 	selector: 'OskaTree',
 	templateUrl: './pages/shared-components/oska-tree/oska-tree.html',
-	styleUrls: ['./pages/shared-components/oska-tree/oska-tree.css']
+	styleUrls: ['./pages/shared-components/oska-tree/oska-tree.css'],
+	providers: [ OskaTreeDataSourceService ]
 })
 
 export class OskaTreeComponent implements OnInit {
 
 	private _elementRef: ElementRef;
 	private _frame: Frame;
-	constructor(elRef: ElementRef, frame: Frame) {
+	constructor(elRef: ElementRef, frame: Frame, otds: OskaTreeDataSourceService) {
 		this._elementRef = elRef;
 		this._frame = frame;
+		this.dataSource = otds
 	}
 
-	private _treeItems: ITreeItem[];
+	@Input()
+	private treeBranch: boolean;
 
 	@Input()
 	public data: any;
@@ -26,8 +31,9 @@ export class OskaTreeComponent implements OnInit {
 	@Input()
 	public properties: IProperties;
 
-	@Input()
-	private dataSource: ITreeItem[];
+	private _treeItems: ITreeItem[];
+
+	private dataSource: OskaTreeDataSourceService;
 
 	private childProperties: IProperties = {
 		id: "id",
@@ -37,7 +43,7 @@ export class OskaTreeComponent implements OnInit {
 
 	@Output() treeCheckedChange: EventEmitter<ITreeItem[]> = new EventEmitter();
 	public onCheckedChange(ds: ITreeItem[]) {
-		this.treeCheckedChange.emit(this.dataSource);
+		this.treeCheckedChange.emit(this.dataSource.data);
 	}
 
 	private prepareData(_data: any) {
@@ -45,8 +51,11 @@ export class OskaTreeComponent implements OnInit {
 		this.findCurrentBiggestIntId(this._treeItems);
 		this.giveIdToAllItems(this._treeItems);
 
-		if (!this.dataSource || !this.dataSource.length) {
-			this.dataSource = this._treeItems;
+		if (!this.dataSource || !this.dataSource.data || !this.dataSource.data.length) {
+			if (!this.treeBranch) {
+				this.dataSource.data = this._treeItems;
+				debugger
+			}
 		}
 	}
 
@@ -94,10 +103,10 @@ export class OskaTreeComponent implements OnInit {
 	}
 
 	private onTapCheckbox(e, item) {
-		let dataitem = _.find(this.dataSource, { "id": item.id, "name": item.name });
+		let parentDataItem = _.find(this._treeItems, { "id": item.id, "name": item.name });
+		parentDataItem.checked = e.value;
 
 		if (item.children && item.children.length) {
-			let parentDataItem = _.find(this._treeItems, { "id": item.id, "name": item.name });
 			parentDataItem.collapsed = false;
 			_.each(parentDataItem.children, child => {
 				let view = this._frame.getViewById("" + child.id);
@@ -105,13 +114,13 @@ export class OskaTreeComponent implements OnInit {
 					(view as any).toggle();
 					child.checked = (view as any).checked;
 					parentDataItem.checked = (view as any).checked;
-					// this.updateDataSource(child);
+					this.updateDataSource(child);
 				}
 			});
-			this.updateDataSource(parentDataItem);
 
 		}
-		this.onCheckedChange(this.dataSource);
+		this.updateDataSource(parentDataItem);
+		this.onCheckedChange(this.dataSource.data);
 	}
 
 	private onTapLabel(e, item) {
@@ -133,7 +142,7 @@ export class OskaTreeComponent implements OnInit {
 
 	private _deSelectAll(data?: ITreeItem[], skip?: ITreeItem) {
 		if (!data) {
-			data = _.clone(this.dataSource);
+			data = _.clone(this.dataSource.data);
 		}
 
 		if (!data.length) {
@@ -154,35 +163,35 @@ export class OskaTreeComponent implements OnInit {
 	}
 
 	public getDataSource() {
-		return this.dataSource;
+		return this.dataSource.data;
 	}
 
 	private _checkedItems: ITreeItem[] = [];
 	public getChecked() {
-		let data =_.flattenDeep(_.clone(this.dataSource));
+		let data = _.clone(this.dataSource.data);
 
-		let a = _.filter(data, { checked: true });
 		debugger
 	}
 
-	updateDataSource(item: ITreeItem, _dataSource?: ITreeItem[]) {
-		if (!_dataSource) {
-			_dataSource = this.dataSource;
-		}
+	updateDataSource(item: ITreeItem) {
+		this.dataSource.data = this.findAndUpdate(item, this.dataSource.data);
+		debugger
+	}
 
+	findAndUpdate(item: ITreeItem, _dataSource: ITreeItem[]) {
 		let dataItem = _.find(_dataSource, { "id": item.id, "name": item.name });
 
 		if (dataItem) {
-			console.log("found: " + dataItem.name);
 			dataItem.checked = item.checked;
-			return true;
+			return _dataSource;
 		}
 		_.each(_dataSource, _item => {
 			if (_item.children.length) {
-				this.updateDataSource(item, _item.children);
+				_item.children = this.findAndUpdate(item, _item.children);
 			}
 		});
 
+		return _dataSource;
 	}
 
 	ngOnInit() {
@@ -196,7 +205,8 @@ interface ITreeItem {
 	id: string;
 	name: string;
 	children?: ITreeItem[];
-	checked?: any;
+	checked?: boolean;
+	collapsed?: boolean;
 }
 
 interface IProperties {

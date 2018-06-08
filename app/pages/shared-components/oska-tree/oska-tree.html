@@ -7,6 +7,6 @@
 	</StackLayout>
 
 	<StackLayout id="{{'child-ot-wrapper-' + item.id}}" visibility="{{item.collapsed ? 'collapse' : 'visible'}}">
-		<OskaTree id="{{'child-ot-' + item.id}}" [properties]="childProperties" [data]="item.children" (treeCheckedChange)="onCheckedChange($event)"></OskaTree>
+		<OskaTree [treeBranch]="true" id="{{'child-ot-' + item.id}}" [properties]="childProperties" [data]="item.children" (treeCheckedChange)="onCheckedChange($event)"></OskaTree>
 	</StackLayout>
 </StackLayout>
