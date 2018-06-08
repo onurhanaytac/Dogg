@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, HostListener, OnInit, ElementRef, ViewChild } from "@angular/core";
-import { Data } from "../../../shared/data";
 import { _ } from "lodash";
 import { Frame, topmost } from "tns-core-modules/ui/frame";
+import { Color } from 'color';
 
 @Component({
 	selector: 'OskaTree',
@@ -35,9 +35,9 @@ export class OskaTreeComponent implements OnInit {
 		children: "children"
 	}
 
-	@Output() setupItemView: EventEmitter<null> = new EventEmitter();
-	public onSetupItemView() {
-		this.setupItemView.emit();
+	@Output() treeCheckedChange: EventEmitter<ITreeItem[]> = new EventEmitter();
+	public onCheckedChange(ds: ITreeItem[]) {
+		this.treeCheckedChange.emit(this.dataSource);
 	}
 
 	private prepareData(_data: any) {
@@ -48,7 +48,6 @@ export class OskaTreeComponent implements OnInit {
 		if (!this.dataSource || !this.dataSource.length) {
 			this.dataSource = this._treeItems;
 		}
-		debugger
 	}
 
 	private currentBiggestIntId: number = -1;
@@ -84,7 +83,8 @@ export class OskaTreeComponent implements OnInit {
 				id: child[this.properties.id] ? child[this.properties.id] : "",
 				name: child[this.properties.name],
 				children: this.getChildren(child[this.properties.children]),
-				checked: false
+				checked: false,
+				collapsed: true
 			}
 
 			_children.push(child);
@@ -94,20 +94,34 @@ export class OskaTreeComponent implements OnInit {
 	}
 
 	private onTapCheckbox(e, item) {
+		let dataitem = _.find(this.dataSource, { "id": item.id, "name": item.name });
+
 		if (item.children && item.children.length) {
-			let parentDataItem = _.find(_.clone(this._treeItems), { "id": item.id, "name": item.name });
+			let parentDataItem = _.find(this._treeItems, { "id": item.id, "name": item.name });
+			parentDataItem.collapsed = false;
 			_.each(parentDataItem.children, child => {
 				let view = this._frame.getViewById("" + child.id);
 				if (e.value === !(view as any).checked) {
 					(view as any).toggle();
+					child.checked = (view as any).checked;
+					parentDataItem.checked = (view as any).checked;
+					// this.updateDataSource(child);
 				}
 			});
+			this.updateDataSource(parentDataItem);
+
 		}
+		this.onCheckedChange(this.dataSource);
 	}
 
 	private onTapLabel(e, item) {
 		this._deSelectAll();
 		this.selectItem(item)
+	}
+
+	private onTapButton(e, item) {
+		let _item = _.find(this._treeItems, { "id": item.id, "name": item.name });
+		_item.collapsed = !_item.collapsed;
 	}
 
 	private selectItem(item: ITreeItem) {
@@ -137,6 +151,38 @@ export class OskaTreeComponent implements OnInit {
 				this._deSelectAll(item.children);
 			}
 		});
+	}
+
+	public getDataSource() {
+		return this.dataSource;
+	}
+
+	private _checkedItems: ITreeItem[] = [];
+	public getChecked() {
+		let data =_.flattenDeep(_.clone(this.dataSource));
+
+		let a = _.filter(data, { checked: true });
+		debugger
+	}
+
+	updateDataSource(item: ITreeItem, _dataSource?: ITreeItem[]) {
+		if (!_dataSource) {
+			_dataSource = this.dataSource;
+		}
+
+		let dataItem = _.find(_dataSource, { "id": item.id, "name": item.name });
+
+		if (dataItem) {
+			console.log("found: " + dataItem.name);
+			dataItem.checked = item.checked;
+			return true;
+		}
+		_.each(_dataSource, _item => {
+			if (_item.children.length) {
+				this.updateDataSource(item, _item.children);
+			}
+		});
+
 	}
 
 	ngOnInit() {

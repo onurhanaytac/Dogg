@@ -1,8 +1,12 @@
 <StackLayout *ngFor="let item of _treeItems" class="list-group-item" style="margin: 0px 0px 0px 40px;">
-	<GridLayout cols="auto, *">
-		<CheckBox backgroundColor="blue" id="{{item.id}}" style="margin-right: 960px; margin-bottom: 20px;" width="30" col="0" *ngIf="properties.checkbox" [checked]="item.checked" (checkedChange)="onTapCheckbox($event, item)"></CheckBox>
-		<Label col="1" [text]="item.name" style="padding: 20px 20px 10px 0px; margin-left: 80px" (tap)="onTapLabel($event, item)"></Label>
-	</GridLayout>
 
-	<OskaTree [properties]="childProperties" [data]="item.children" [dataSource]="dataSource"></OskaTree>
+	<StackLayout orientation="horizontal">
+		<Button *ngIf="item.children.length" class="fa" width="40" height="40" text="&#xf0d7;" style="margin-left: -16px; background-color: transparent; border-color: transparent; border-width: 1;" (tap)="onTapButton($event, item)"></Button>
+		<CheckBox id="{{item.id}}" width="30" height="40" style="margin-left: -18px;" *ngIf="properties.checkbox" [checked]="item.checked" (checkedChange)="onTapCheckbox($event, item)"></CheckBox>
+		<Label [text]="item.name" width="100%" height="40" style="margin: 0px 0px -60px 20px; padding-right: 80px" (tap)="onTapLabel($event, item)"></Label>
+	</StackLayout>
+
+	<StackLayout id="{{'child-ot-wrapper-' + item.id}}" visibility="{{item.collapsed ? 'collapse' : 'visible'}}">
+		<OskaTree id="{{'child-ot-' + item.id}}" [properties]="childProperties" [data]="item.children" (treeCheckedChange)="onCheckedChange($event)"></OskaTree>
+	</StackLayout>
 </StackLayout>

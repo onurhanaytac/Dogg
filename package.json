@@ -6,7 +6,7 @@
 	"nativescript": {
 		"id": "org.nativescript.HakedisMobil",
 		"tns-android": {
-			"version": "3.4.2"
+			"version": "3.4.3"
 		}
 	},
 	"dependencies": {
@@ -22,6 +22,7 @@
 		"lodash": "^4.17.5",
 		"nativescript-angular": "~5.2.0",
 		"nativescript-checkbox": "^3.0.3",
+		"nativescript-floatingactionbutton": "^4.1.3",
 		"nativescript-google-maps-sdk": "^2.5.0",
 		"nativescript-theme-core": "~1.0.4",
 		"nativescript-ui-listview": "^3.5.4",

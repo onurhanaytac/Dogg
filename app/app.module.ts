@@ -15,6 +15,7 @@ import * as platform from "platform";
 
 import { registerElement } from "nativescript-angular/element-registry";
 registerElement("MapView", () => require("nativescript-google-maps-sdk").MapView);
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
 // declare var GMSServices: any;
 // if(platform.isIOS) {

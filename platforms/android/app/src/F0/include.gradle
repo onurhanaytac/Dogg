@@ -1,12 +1,27 @@
-android { 
-	productFlavors {
-		"nativescript-google-maps-sdk" {
-			dimension "nativescriptgooglemapssdk"
-		}
-	}
+//default elements
+android {
+    productFlavors {
+        "nativescriptfloatingactionbutton" {
+            dimension "nativescriptfloatingactionbutton"
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
 }
 
 dependencies {
-	def googlePlayServicesVersion = project.hasProperty('googlePlayServicesVersion') ? project.googlePlayServicesVersion : '+'
-	compile "com.google.android.gms:play-services-maps:$googlePlayServicesVersion"
+      def supportVer = "26.1.0";
+
+      if(project.hasProperty("supportVersion")) {
+       supportVer = supportVersion
+      }
+
+     compile "com.android.support:design:$supportVer"
 }

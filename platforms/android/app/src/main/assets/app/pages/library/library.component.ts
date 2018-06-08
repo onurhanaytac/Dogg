@@ -1,6 +1,7 @@
 import { Component, } from "@angular/core";
 import { Page } from "ui/page";
 import { Router } from "@angular/router";
+import { Frame, topmost } from "tns-core-modules/ui/frame";
 
 @Component({
   selector: "library",
@@ -10,8 +11,11 @@ import { Router } from "@angular/router";
 
 
 export class LibraryComponent {
-	constructor(private page: Page, private _router: Router) {
+	constructor(private page: Page, private _router: Router, private frame: Frame) {
+		this._frame = frame;
 	}
+
+	private _frame: Frame;
 
 	onIndexChanged(e) {
 		const viewMapping = {
@@ -27,6 +31,10 @@ export class LibraryComponent {
 
 			this._router.navigate(['/library', properties ]);
 		}
+	}
+
+	enginStart(e) {
+		console.log("engine");
 	}
 
 	ngOnInit() {

@@ -93,6 +93,8 @@ C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\ass
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-checkbox\checkbox-common.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-checkbox\checkbox.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-checkbox\angular\index.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-floatingactionbutton\fab-common.js
+C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-floatingactionbutton\fab.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-google-maps-sdk\map-view-common.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-google-maps-sdk\map-view.js
 C:\Users\Oska\Documents\GitCodes\HakedisMobil\platforms\android\app\src\main\assets\app\tns_modules\nativescript-intl\index.js

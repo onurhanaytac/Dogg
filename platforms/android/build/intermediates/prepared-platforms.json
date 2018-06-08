@@ -11,6 +11,7 @@
     "lodash": true,
     "nativescript-angular": true,
     "nativescript-checkbox": true,
+    "nativescript-floatingactionbutton": true,
     "nativescript-google-maps-sdk": true,
     "nativescript-theme-core": true,
     "nativescript-ui-listview": true,
