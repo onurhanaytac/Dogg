@@ -33,6 +33,7 @@ export class OskaTreeComponent implements OnInit {
 
 	private _treeItems: ITreeItem[];
 
+	@Input()
 	private dataSource: OskaTreeDataSourceService;
 
 	private childProperties: IProperties = {
@@ -54,7 +55,6 @@ export class OskaTreeComponent implements OnInit {
 		if (!this.dataSource || !this.dataSource.data || !this.dataSource.data.length) {
 			if (!this.treeBranch) {
 				this.dataSource.data = this._treeItems;
-				debugger
 			}
 		}
 	}
@@ -85,18 +85,22 @@ export class OskaTreeComponent implements OnInit {
 
 	private getChildren (children: any) {
 		let _children: ITreeItem[] = [];
-		let child: ITreeItem;
+		let _child: ITreeItem;
 
 		_.each(children, child => {
-			child = {
-				id: child[this.properties.id] ? child[this.properties.id] : "",
-				name: child[this.properties.name],
-				children: this.getChildren(child[this.properties.children]),
-				checked: false,
-				collapsed: true
-			}
+			_child = { id: "string", name: "string"}
 
-			_children.push(child);
+			_.each(_.keys(child), key => {
+				_child[key] = child[key];
+			});
+
+			_child["id"] = child[this.properties.id] ? child[this.properties.id] : "";
+			_child["name"] = child[this.properties.name];
+			_child["children"] = this.getChildren(child[this.properties.children]);
+			_child["checked"] = false;
+			_child["collapsed"] = true;
+
+			_children.push(_child);
 		});
 
 		return _children;
@@ -131,6 +135,7 @@ export class OskaTreeComponent implements OnInit {
 	private onTapButton(e, item) {
 		let _item = _.find(this._treeItems, { "id": item.id, "name": item.name });
 		_item.collapsed = !_item.collapsed;
+		this.updateDataSource(_item);
 	}
 
 	private selectItem(item: ITreeItem) {
@@ -168,14 +173,25 @@ export class OskaTreeComponent implements OnInit {
 
 	private _checkedItems: ITreeItem[] = [];
 	public getChecked() {
-		let data = _.clone(this.dataSource.data);
+		return this.findChekced(_.clone(this.dataSource.data));
+	}
 
-		debugger
+	private findChekced(data: ITreeItem) {
+		_.each(data, item => {
+			if (item.checked) {
+				this._checkedItems.push(item);
+
+				if (item.children && item.children.length) {
+					this.findChekced(item.children)
+				}
+			}
+		});
+
+		return this._checkedItems;
 	}
 
 	updateDataSource(item: ITreeItem) {
 		this.dataSource.data = this.findAndUpdate(item, this.dataSource.data);
-		debugger
 	}
 
 	findAndUpdate(item: ITreeItem, _dataSource: ITreeItem[]) {
@@ -183,6 +199,7 @@ export class OskaTreeComponent implements OnInit {
 
 		if (dataItem) {
 			dataItem.checked = item.checked;
+			dataItem.collapsed = item.collapsed;
 			return _dataSource;
 		}
 		_.each(_dataSource, _item => {

@@ -1,6 +1,6 @@
 <GridLayout rows="auto, *">
-  <SearchBar row="0" hint="Poz ara.." [text]="searchPhrase" (submit)="onSubmit($event)" (clear)="onClear($event)"></SearchBar>
-		<RadListView row="1" [items]="_workFileSummary" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
+  <SearchBar row="0" hint="Poz ara.." [(ngModel)]="libraryFormData.searchText" (submit)="onSubmit($event)" (clear)="onClear($event)"></SearchBar>
+		<RadListView row="1" [items]="_libraryWorkItems" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
 			<ng-template tkListItemTemplate let-item="item">
 				<StackLayout orientation="vertical" style="padding: 20px; margin: 20px;">
 					<Label class="nameLabel" [text]="item.WorkFileName"></Label>

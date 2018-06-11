@@ -2,20 +2,25 @@ import { Component, } from "@angular/core";
 import { Page } from "ui/page";
 import { Router } from "@angular/router";
 import { Frame, topmost } from "tns-core-modules/ui/frame";
+import { LibraryFormData } from "../../shared/library/library-form-data";
+import { LibraryFormDataService } from "../../shared/library/library-form-data.service";
 
 @Component({
   selector: "library",
   templateUrl: "./pages/library/library.html",
-  styleUrls: [ "./pages/library/library.css" ]
+  styleUrls: [ "./pages/library/library.css" ],
+  providers: [LibraryFormDataService]
 })
 
 
 export class LibraryComponent {
-	constructor(private page: Page, private _router: Router, private frame: Frame) {
+	constructor(private page: Page, private _router: Router, private frame: Frame, lfdService: LibraryFormDataService) {
 		this._frame = frame;
+		this._libraryFormData = lfdService.libraryFormData;
 	}
 
 	private _frame: Frame;
+	private _libraryFormData: LibraryFormData;
 
 	onIndexChanged(e) {
 		const viewMapping = {
@@ -33,8 +38,8 @@ export class LibraryComponent {
 		}
 	}
 
-	enginStart(e) {
-		console.log("engine");
+	public enginStart(e) {
+		this._libraryFormData; debugger;
 	}
 
 	ngOnInit() {
