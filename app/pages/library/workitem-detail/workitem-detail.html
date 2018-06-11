@@ -1,0 +1,14 @@
+<ActionBar title="{{ _libraryWorkItemDetail.Number }} Detay" style="color: #0071bc;">
+	<NavigationButton text="Geri" android.systemIcon="ic_menu_back" (tap)="onTapNavBtn()"></NavigationButton>
+</ActionBar>
+
+<Stacklayout>
+	<CardView elevation="8" margin="8" radius="8">
+		<StackLayout style="padding: 20px; margin: 20px;">
+			<Label [text]="_libraryWorkItemDetail.LibraryBookName"></Label>
+			<Label [text]="_libraryWorkItemDetail.LibraryFascicleName"></Label>
+			<Label [text]="_libraryWorkItemDetail.Description"></Label>
+			<Label [text]="_libraryWorkItemDetail.Unit"></Label>
+		</StackLayout>
+	</CardView>
+</Stacklayout>

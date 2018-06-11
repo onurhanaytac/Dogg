@@ -17,6 +17,7 @@ import { WorkfileDetailsComponent } from "./pages/workfile/workfile-details/work
 import { SearchFiltersComponent } from "./pages/library/search-filters/search-filters.component";
 import { SearchComponent } from "./pages/library/search/search.component";
 import { AccountComponent } from "./pages/library/account/account.component";
+import { WorkItemDetailComponent } from "./pages/library/workitem-detail/workitem-detail.component";
 
 import { OskaTreeComponent } from "./pages/shared-components/oska-tree/oska-tree.component";
 
@@ -46,6 +47,10 @@ export const routes = [
       { path: "search",         component: SearchComponent,        outlet: "search-outlet" },
       { path: "account",        component: AccountComponent,       outlet: "account-outlet" },
     ]
+  },
+  {
+    path: "workitem-detail",
+    component: WorkItemDetailComponent,
   },
   {
     path: "login",
@@ -92,5 +97,6 @@ export const navigatableComponents = [
   SearchFiltersComponent,
   SearchComponent,
   AccountComponent,
-  OskaTreeComponent
+  OskaTreeComponent,
+  WorkItemDetailComponent
 ];

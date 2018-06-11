@@ -14,7 +14,6 @@ export class WorkfileComponent {
 	_workFileSummary: any;
 
 	constructor(private page: Page) {
-		this._workFileSummary = new Data().workFileSummary;
 		page.actionBarHidden = true;
 
 	}

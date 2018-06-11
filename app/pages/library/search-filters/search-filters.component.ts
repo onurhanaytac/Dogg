@@ -68,7 +68,7 @@ export class SearchFiltersComponent {
 		};
 
 		dialogs.action(options).then((result) => {
-			this.libraryFormData.selectedYear = result.toString();
+			this.libraryFormData.selectedYear = isNaN(parseInt(result)) ? this.libraryFormData.selectedYear : result.toString();
 		});
 	}
 

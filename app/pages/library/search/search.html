@@ -1,11 +1,32 @@
 <GridLayout rows="auto, *">
-  <SearchBar row="0" hint="Poz ara.." [(ngModel)]="libraryFormData.searchText" (submit)="onSubmit($event)" (clear)="onClear($event)"></SearchBar>
-		<RadListView row="1" [items]="_libraryWorkItems" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
-			<ng-template tkListItemTemplate let-item="item">
-				<StackLayout orientation="vertical" style="padding: 20px; margin: 20px;">
-					<Label class="nameLabel" [text]="item.WorkFileName"></Label>
-					<Label class="descriptionLabel" [text]="item.LastProgressPaymentArrangementDate"></Label>
-				</StackLayout>
-			</ng-template>
-		</RadListView>
+	<SearchBar row="0" hint="Poz ara.." [(ngModel)]="libraryFormData.searchText" (submit)="onSubmit($event)" (clear)="onClear($event)"></SearchBar>
+	<RadListView row="1" [items]="_libraryWorkItems" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
+		<ng-template tkListItemTemplate let-item="item">
+			<CardView elevation="8" margin="8" radius="8">
+				<Ripple (tap)="onTapCard($event, item)">
+					<StackLayout orientation="vertical" style="padding: 20px; margin: 20px;">
+						<StackLayout orientation="horizontal" style="padding-bottom: 10;">
+							<Label class="nameLabel" [text]="item.Number" style="text-decoration: underline; color: #0071bc; font-weight: bold; font-size: 20;" textWrap="true"></Label>
+							<Label class="nameLabel" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="color: #ed2024; font-size: 20;"></Label>
+							<Label class="nameLabel" [text]="item.Unit" style="color: #ed2024; font-size: 20;" textWrap="true"></Label>
+							<Label class="nameLabel" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="color: #ed2024; font-size: 20;"></Label>
+							<Label class="nameLabel" [text]="item.LibraryBookAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
+							<Label class="nameLabel" text=" - " style="margin-top: 8; color: #39b54a; font-size: 12;"></Label>
+							<Label class="nameLabel" [text]="item.LibraryFascicleAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
+						</StackLayout>
+
+						<StackLayout *ngIf="item.LibraryWorkItemPrices[0]" orientation="horizontal" style="padding-top: 10; padding-bottom: 10; border-bottom-width: 1; border-bottom-style: solid; border-bottom-color: rgb(223, 225, 229); border-top-width: 1; border-top-style: solid; border-top-color: rgb(223, 225, 229);">
+							<Label class="nameLabel" [text]="libraryFormData.selectedYear" textWrap="true"></Label>
+							<Label class="nameLabel" text=" yılı birim fiyatı: "></Label>
+							<Label class="nameLabel" [text]="item._libraryWorkItemUnitPrices[libraryFormData.selectedYear]" textWrap="true"></Label>
+						</StackLayout>
+
+						<StackLayout style="padding-top: 10;">
+							<Label class="descriptionLabel" [text]="item.Description" textWrap="true"></Label>
+						</StackLayout>
+					</StackLayout>
+				</Ripple>
+			</CardView>
+		</ng-template>
+	</RadListView>
 </GridLayout>
