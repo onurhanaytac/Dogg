@@ -15,7 +15,7 @@
 							<Label class="nameLabel" [text]="item.LibraryFascicleAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
 						</StackLayout>
 
-						<StackLayout *ngIf="item.LibraryWorkItemPrices[0]" orientation="horizontal" style="padding-top: 10; padding-bottom: 10; border-bottom-width: 1; border-bottom-style: solid; border-bottom-color: rgb(223, 225, 229); border-top-width: 1; border-top-style: solid; border-top-color: rgb(223, 225, 229);">
+						<StackLayout *ngIf="item.LibraryWorkItemPrices[0]" orientation="horizontal" style="padding-top: 10; padding-bottom: 10;" class="border-bottom border-top">
 							<Label class="nameLabel" [text]="libraryFormData.selectedYear" textWrap="true"></Label>
 							<Label class="nameLabel" text=" yılı birim fiyatı: "></Label>
 							<Label class="nameLabel" [text]="item._libraryWorkItemUnitPrices[libraryFormData.selectedYear]" textWrap="true"></Label>

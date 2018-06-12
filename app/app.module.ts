@@ -4,8 +4,11 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
+
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular"
+
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 
 import { AppComponent } from "./app.component";
@@ -34,6 +37,7 @@ registerElement("Ripple", () => require("nativescript-ripple").Ripple);
     NativeScriptRouterModule.forRoot(routes),
     NativeScriptUIListViewModule,
     NativeScriptUISideDrawerModule,
+    NativeScriptUIChartModule,
     NativeScriptHttpClientModule,
     TNSCheckBoxModule
   ],

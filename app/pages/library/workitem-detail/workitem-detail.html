@@ -1,14 +1,99 @@
-<ActionBar title="{{ _libraryWorkItemDetail.Number }} Detay" style="color: #0071bc;">
+<ActionBar title="Birim Fiyat, Analiz ve Yapım Şartları" style="font-size: 16; color: #3bb748;">
 	<NavigationButton text="Geri" android.systemIcon="ic_menu_back" (tap)="onTapNavBtn()"></NavigationButton>
 </ActionBar>
 
-<Stacklayout>
-	<CardView elevation="8" margin="8" radius="8">
-		<StackLayout style="padding: 20px; margin: 20px;">
-			<Label [text]="_libraryWorkItemDetail.LibraryBookName"></Label>
-			<Label [text]="_libraryWorkItemDetail.LibraryFascicleName"></Label>
-			<Label [text]="_libraryWorkItemDetail.Description"></Label>
-			<Label [text]="_libraryWorkItemDetail.Unit"></Label>
-		</StackLayout>
-	</CardView>
-</Stacklayout>
+<ScrollView>
+	<Stacklayout>
+
+		<CardView elevation="8" margin="8" radius="8">
+			<StackLayout style="padding: 20px; margin: 20px;">
+				<StackLayout orientation="horizontal" style="padding-bottom: 10;">
+					<Label class="title" [text]="_libraryWorkItemDetail.Number"></Label>
+					<Label class="title-secondary-text" [text]="_libraryWorkItemDetail.Unit"></Label>
+				</StackLayout>
+
+				<StackLayout style="padding-bottom: 10;">
+					<Label class="caption" [text]="_libraryWorkItemDetail.LibraryBookName"></Label>
+					<Label class="caption" [text]="_libraryWorkItemDetail.LibraryFascicleName"></Label>
+				</StackLayout>
+
+				<StackLayout class="border-top">
+					<Label [text]="_libraryWorkItemDetail.Description" textWrap="true" style="padding-top: 10;"></Label>
+				</StackLayout>
+			</StackLayout>
+		</CardView>
+
+		<CardView elevation="8" margin="8" radius="8">
+			<StackLayout backgroundColor="lightgray">
+				<StackLayout orientation="horizontal" backgroundColor="#0071bc">
+					<Label text="Yıl" 						height="60" paddingTop="16" style="text-align: center;" color="#fff" width="25%" textWrap="true"></Label>
+					<Label text="Birim Fiyatı" 		height="60" paddingTop="16" style="text-align: center;" color="#fff" width="25%" textWrap="true"></Label>
+					<Label text="Montaj Fiyatı" 	height="60" paddingTop="16" style="text-align: center;" color="#fff" width="25%" textWrap="true"></Label>
+					<Label text="Demontaj Fiyatı" height="60" paddingTop="16" style="text-align: center;" color="#fff" width="25%" textWrap="true"></Label>
+				</StackLayout>
+
+				<StackLayout height="300" #UnitPrices>
+					<StackLayout *ngFor="let price of _libraryWorkItemDetail.LibraryWorkItemPrices" orientation="horizontal">
+						<Label [text]="price.Year" 						backgroundColor="#fff"	height="45" marginBottom="1" paddingTop="12" style="text-align: center;" color="#000" width="25%" textWrap="true"></Label>
+						<Label [text]="price.UnitPrice" 			backgroundColor="#fff"	height="45" marginBottom="1" paddingTop="12" style="text-align: right;" color="#000" width="25%" textWrap="true"></Label>
+						<Label [text]="price.AssemblyPrice" 	backgroundColor="#fff"	height="45" marginBottom="1" paddingTop="12" style="text-align: right;" color="#000" width="25%" textWrap="true"></Label>
+						<Label [text]="price.DisassemblyPrice" backgroundColor="#fff"	height="45" marginBottom="1" paddingTop="12" style="text-align: right;" color="#000" width="25%" textWrap="true"></Label>
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout height="60" backgroundColor="#fff">
+					<GridLayout rows="*" height="100%" width="100%">
+						<StackLayout row="0" class="commands">
+							<Label vertiaclAlign="strecth" height="30" class="border-bottom-white"></Label>
+						</StackLayout>
+						<FAB row="0" id="expand" icon="~/content/images/angle-down.png" (tap)="expand($event, UnitPrices)" style="background-color: #b8b8b8; width: 60; padding: 0; margin: 0;"></FAB>
+						<FAB row="0" id="expand" icon="~/content/images/angle-up.png"   (tap)="expand($event, UnitPrices)" style="background-color: #b8b8b8; width: 60; padding: 0; margin: 0;" visibility="collapsed"></FAB>
+					</GridLayout>
+				</StackLayout>
+
+			</StackLayout>
+		</CardView>
+
+		<CardView elevation="8" margin="8" radius="8">
+			<StackLayout height="300" style="padding: 10;">
+				<Label text="Yıllara göre birim fiyatlar" style="padding: 10;"></Label>
+				<RadCartesianChart tkExampleTitle tkToggleNavButton>
+				    <CategoricalAxis tkCartesianHorizontalAxis labelFitMode="rotate"></CategoricalAxis>
+				    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+
+				    <BarSeries tkCartesianSeries [items]="_libraryWorkItemDetail.LibraryWorkItemPrices" categoryProperty="Year" valueProperty="UnitPrice"></BarSeries>
+				</RadCartesianChart>
+			</StackLayout>
+		</CardView>
+
+		<CardView elevation="8" margin="8" radius="8">
+			<StackLayout>
+				<Label text="Yapım Şartları" style="padding: 10; color: #000;"></Label>
+				<Label [text]="_libraryWorkItemDetail.TermsOfProduction" textWrap="true" style="padding: 10;"></Label>
+			</StackLayout>
+		</CardView>
+
+		<CardView elevation="8" margin="8" radius="8">
+			<StackLayout>
+
+				<Label text="Analizler" style="padding: 10; color: #000;"></Label>
+
+				<StackLayout *ngFor="let item of _libraryWorkItemDetail.LibraryWorkItemAnalysis" style="padding: 10;" class="border-bottom">
+					<StackLayout orientation="horizontal">
+						<Label class="title" [text]="item.Number"></Label>
+						<Label text=" "></Label>
+						<Label class="title-secondary-text" [text]="item.Description" *ngIf="item.Number"></Label>
+						<Label [text]="item.Description" textWrap="true" *ngIf="!item.Number"></Label>
+					</StackLayout>
+					<StackLayout orientation="horizontal" *ngIf="item.Number">
+						<Label [text]="item.Quantity" style="font-size: 18; font-weight: bold;"></Label>
+						<Label text=" "></Label>
+						<Label class="caption" [text]="item.Unit" paddingTop="4"></Label>
+					</StackLayout>
+				</StackLayout>
+
+			</StackLayout>
+		</CardView>
+
+	</Stacklayout>
+</ScrollView>

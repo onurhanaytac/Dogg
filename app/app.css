@@ -24,6 +24,10 @@ TextField {
 	font-size: 14;
 }
 
+Label {
+    font-family: Roboto;
+}
+
 .listview-margin {
     margin: 20px 0px 0px 40px;
 }
@@ -88,4 +92,43 @@ TextField {
     vertical-align: bottom;
     color: #FFF;
     background-color: #ff4081;
+}
+
+
+.title {
+    font-size: 20;
+    font-weight: bold;
+    color: #000;
+    color: #0071bc;
+}
+
+.title-secondary-text {
+    font-size: 16;
+    font-weight: normal;
+    color: #c54531;
+    padding: 4 4;
+}
+
+.caption {
+    font-size: 14;
+    font-weight: normal;
+    color: #000;
+}
+
+.border-top {
+    border-top-width: 1;
+    border-top-style: solid;
+    border-top-color: rgb(223, 225, 229);
+}
+
+.border-bottom {
+    border-bottom-width: 1;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(223, 225, 229);
+}
+
+.border-bottom-white {
+    border-bottom-width: 4;
+    border-bottom-style: solid;
+    border-bottom-color: #dadada;
 }
