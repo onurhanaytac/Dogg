@@ -134,8 +134,6 @@ export class LibraryComponent {
 		};
 	}
 
-
-
 	ngOnInit() {
 		this.createLoader();
 	}

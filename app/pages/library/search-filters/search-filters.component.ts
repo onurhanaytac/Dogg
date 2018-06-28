@@ -8,6 +8,7 @@ import { LibraryFormDataService } from "../../../shared/library/library-form-dat
 import * as dialogs from "ui/dialogs";
 import { LibraryComponent } from "../library.component";
 import { Frame, topmost } from "tns-core-modules/ui/frame";
+import { LibraryWorkItemService } from "../../../shared/library/library-workitem.service";
 
 @Component({
 	selector: "search-filters",
@@ -23,7 +24,7 @@ export class SearchFiltersComponent {
 	public libraryFormData: LibraryFormData;
 	public unitPriceYears: string[] = [];
 
-	constructor(@Host() public libraryComponent: LibraryComponent ,private page: Page, lfdService: LibraryFormDataService, public _frame: Frame) {
+	constructor(@Host() public libraryComponent: LibraryComponent ,private page: Page, lfdService: LibraryFormDataService, public _frame: Frame, public lwiService: LibraryWorkItemService) {
 		this.libraryFormData = lfdService.libraryFormData;
 		this._data = new Data().libraryBookAndFascicles;
 		this._properties = {
@@ -40,7 +41,25 @@ export class SearchFiltersComponent {
 		let checkedItems = (this.tree as any).dataSource.data;
 		this.libraryFormData.libraryBookFascicleIds = [];
 		this.getLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
-		debugger
+		if (!this.libraryFormData.libraryBookFascicleIds.length) {
+			this.getAllLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
+		}
+	}
+
+	getAllLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
+		_.each(nodes, node => {
+			if (node.children.length) {
+				return this.getLibraryBookFascicleIds(node.children, checkedNodes, node.LibraryBookId);
+			}
+
+			if (node.checked) {
+				checkedNodes.push({
+					LibraryBookId: node.LibraryBookId ? node.LibraryBookId : parentId,
+					LibraryFascicleId: node.LibraryFascicleId ? node.LibraryFascicleId : null
+				});
+			}
+
+		});
 	}
 
 	public getLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
@@ -75,6 +94,27 @@ export class SearchFiltersComponent {
 			this.libraryFormData.selectedYear = isNaN(parseInt(result)) ? this.libraryFormData.selectedYear : result.toString();
 			this.libraryComponent.selectedTabIndex = 1;
 		});
+
+	}
+
+	treeLoaded() {
+		(this.tree as any).selectFirstSmallestChild();
+		// let checkedItems = (this.tree as any).dataSource.data;
+		// this.getAllLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
+	}
+
+	prepareUnitPrices(data) {
+		_.each(data, item => {
+			_.each(item.LibraryWorkItemPrices, price => {
+				if (!item["_libraryWorkItemUnitPrices"]) {
+					item["_libraryWorkItemUnitPrices"] = {}
+				}
+
+				item["_libraryWorkItemUnitPrices"][price.Year] = price.UnitPrice;
+			});
+		});
+
+		return data
 	}
 
 	ngOnInit() {

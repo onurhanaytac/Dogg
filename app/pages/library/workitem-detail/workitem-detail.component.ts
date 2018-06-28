@@ -6,6 +6,9 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { _ } from "lodash";
 import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from "@angular/common/http";
 import { Config } from "../../../shared/config";
+import { AndroidApplication, AndroidActivityBackPressedEventData } from "application";
+import { isAndroid } from "platform";
+import * as application from "application";
 
 const LoadingIndicator = require("nativescript-loading-indicator").LoadingIndicator;
 
@@ -123,5 +126,13 @@ export class WorkItemDetailComponent {
 		this.createLoader()
 		this.libraryWorkItemId = this.route.snapshot.paramMap.get("libraryWorkItemId");
 		this.loadPageData(this.libraryWorkItemId, () => {});
+		let self = this;
+
+		if (!isAndroid) {
+      return;
+    }
+    application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {
+    	self.onTapNavBtn();
+    });
 	}
 }

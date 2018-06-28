@@ -10,6 +10,8 @@ import { LibraryComponent } from "../library.component";
 import { _ } from "lodash";
 import { DismissSoftKeybaord } from "../../../shared/DismissSoftKeybaord";
 
+const LoadingIndicator = require("nativescript-loading-indicator").LoadingIndicator;
+
 @Component({
 	selector: "search",
 	templateUrl: "./pages/library/search/search.html",
@@ -24,6 +26,8 @@ export class SearchComponent {
 	public libraryFormData: LibraryFormData;
 	private _libraryComponent: LibraryComponent;
 	private _libraryWorkItemsPage2: any;
+	private loader;
+	private loaderoptions;
 
 	constructor(@Host() libraryComponent: LibraryComponent, private page: Page, public lfdService: LibraryFormDataService, public lwiService: LibraryWorkItemService, public _router: Router) {
 		page.actionBarHidden = true;
@@ -102,6 +106,47 @@ export class SearchComponent {
 		}
 	}
 
+	createLoader() {
+		this.loader = new LoadingIndicator();
+
+		// optional options
+		// android and ios have some platform specific options
+		this.loaderoptions = {
+		  message: 'Yükleniyor...',
+		  progress: 0.65,
+		  android: {
+		    indeterminate: true,
+		    cancelable: true,
+		    cancelListener: function(dialog) { console.log("Loading cancelled") },
+		    max: 100,
+		    progressNumberFormat: "%1d/%2d",
+		    progressPercentFormat: 0.53,
+		    progressStyle: 1,
+		    secondaryProgress: 1
+		  },
+		  ios: {
+		    details: "Lütfen bekleyiniz.",
+		    margin: 10,
+		    dimBackground: true,
+		    // color: "#4B9ED6", // color of indicator and labels
+		    // background box around indicator
+		    // hideBezel will override this if true
+		    // backgroundColor: "yellow",
+		    // userInteractionEnabled: false, // default true. Set false so that the touches will fall through it.
+		    // hideBezel: true, // default false, can hide the surrounding bezel
+		    // view: , // Target view to show on top of (Defaults to entire window)
+		    // mode: // see iOS specific options below
+		  }
+		};
+	}
+
 	ngOnInit() {
+		this.createLoader();
+		this.loader.show(this.loaderoptions);
+		this.lwiService.libraryWorkItems.subscribe(data => {
+			this.loader.hide();
+			this.lwiService._libraryWorkItems = _.union(this.lwiService._libraryWorkItems, this.prepareUnitPrices(data));
+		}, err => {
+		});
 	}
 }

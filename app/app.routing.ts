@@ -20,11 +20,12 @@ import { AccountComponent } from "./pages/library/account/account.component";
 import { WorkItemDetailComponent } from "./pages/library/workitem-detail/workitem-detail.component";
 
 import { OskaTreeComponent } from "./pages/shared-components/oska-tree/oska-tree.component";
+import { TreeComponent } from "./pages/shared-components/oska-tree/tree.component";
 
 export const routes = [
   {
   	path: "",
-    redirectTo: "login",
+    redirectTo: "library",
     pathMatch: 'full'
   },
   {
@@ -98,5 +99,6 @@ export const navigatableComponents = [
   SearchComponent,
   AccountComponent,
   OskaTreeComponent,
+  TreeComponent,
   WorkItemDetailComponent
 ];

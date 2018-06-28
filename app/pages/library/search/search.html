@@ -1,6 +1,6 @@
 <GridLayout rows="auto, *" (loaded)="onSearchLayoutLoaded($event)">
 	<SearchBar row="0" hint="Poz ara.." [(ngModel)]="libraryFormData.searchText" (submit)="onSubmit($event)" (clear)="onClear($event)" (loaded)="onSearchBarLoaded($event)"></SearchBar>
-	<RadListView row="1" [items]="lwiService._libraryWorkItems" loadOnDemandMode="Manuel" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
+	<RadListView row="1" [items]="lwiService._libraryWorkItems" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
 		<ng-template tkListItemTemplate let-item="item">
 			<CardView elevation="8" margin="8" radius="8">
 				<Ripple (tap)="onTapCard($event, item)">
