@@ -10,7 +10,7 @@
 	<Label row="3" col="0" cssClass="field" text="Birim Fiyat Kitapları" style="padding: 20px 20px 20px 40px; margin: 20px;"></Label>
 
 	<ScrollView row="4">
-		<StackLayout>
+		<StackLayout style="margin: 0px 0px 0px -120px;">
 			<OskaTree #LibraryWorkItemBooks [properties]="_properties" [data]="_data" (treeCheckedChange)="onTreeCheckedChange($event)"></OskaTree>
 		</StackLayout>
 	</ScrollView>

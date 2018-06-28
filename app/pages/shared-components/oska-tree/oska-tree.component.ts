@@ -98,7 +98,7 @@ export class OskaTreeComponent implements OnInit {
 			_child["name"] = child[this.properties.name];
 			_child["children"] = this.getChildren(child[this.properties.children]);
 			_child["checked"] = false;
-			_child["collapsed"] = true;
+			_child["collapsed"] = false;
 
 			_children.push(_child);
 		});
@@ -143,6 +143,12 @@ export class OskaTreeComponent implements OnInit {
 		if (!(view as any).checked) {
 			(view as any).toggle();
 		}
+	}
+
+	public selectFirstNode() {
+		this._treeItems
+		debugger
+		this.selectItem(this._treeItems[0])
 	}
 
 	private _deSelectAll(data?: ITreeItem[], skip?: ITreeItem) {
@@ -215,6 +221,9 @@ export class OskaTreeComponent implements OnInit {
 		this.childProperties["checkbox"] = this.properties["checkbox"];
 		this.childProperties["checkChildren"] = this.properties["checkChildren"];
 		this.prepareData(this.data);
+	}
+
+	ngAfterViewInit() {
 	}
 }
 

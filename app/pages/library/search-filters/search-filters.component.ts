@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component, ViewChild, ElementRef, Host } from "@angular/core";
 import { Page } from "ui/page";
 import { Data } from "../../../shared/data";
 import { _ } from "lodash";
@@ -6,6 +6,8 @@ import * as moment from 'moment';
 import { LibraryFormData } from "../../../shared/library/library-form-data";
 import { LibraryFormDataService } from "../../../shared/library/library-form-data.service";
 import * as dialogs from "ui/dialogs";
+import { LibraryComponent } from "../library.component";
+import { Frame, topmost } from "tns-core-modules/ui/frame";
 
 @Component({
 	selector: "search-filters",
@@ -21,7 +23,7 @@ export class SearchFiltersComponent {
 	public libraryFormData: LibraryFormData;
 	public unitPriceYears: string[] = [];
 
-	constructor(private page: Page, lfdService: LibraryFormDataService) {
+	constructor(@Host() public libraryComponent: LibraryComponent ,private page: Page, lfdService: LibraryFormDataService, public _frame: Frame) {
 		this.libraryFormData = lfdService.libraryFormData;
 		this._data = new Data().libraryBookAndFascicles;
 		this._properties = {
@@ -33,11 +35,12 @@ export class SearchFiltersComponent {
 	}
 
 	@ViewChild('LibraryWorkItemBooks') tree: ElementRef;
+
 	onTreeCheckedChange(e) {
 		let checkedItems = (this.tree as any).dataSource.data;
 		this.libraryFormData.libraryBookFascicleIds = [];
-
 		this.getLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
+		debugger
 	}
 
 	public getLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
@@ -60,6 +63,7 @@ export class SearchFiltersComponent {
 	}
 
 	onTapYearButton() {
+		let self = this;
 		let options = {
 			title: "Birim Fiyat Yılı",
 			message: "Lütfen birim fiyat yılı seçiniz",
@@ -69,6 +73,7 @@ export class SearchFiltersComponent {
 
 		dialogs.action(options).then((result) => {
 			this.libraryFormData.selectedYear = isNaN(parseInt(result)) ? this.libraryFormData.selectedYear : result.toString();
+			this.libraryComponent.selectedTabIndex = 1;
 		});
 	}
 

@@ -21,13 +21,14 @@ export class LoginComponent {
 	}
 
 	signIn(e) {
-		this.router.navigate(["/library"]);
+  	this.router.navigate(["/library"]);
 		// this.userService.login(this.user).subscribe(
 		//   (response) => {
-		//   	console.dir(response);
+		//   	console.dir(response); debugger;
 		//   },
 		//   (error) => {
-		//     console.dir(error);
+		//     console.dir(error); debugger;
+		//   	this.router.navigate(["/library"]);
 		//   }
 		// );
 	}

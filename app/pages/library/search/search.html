@@ -1,15 +1,15 @@
-<GridLayout rows="auto, *">
-	<SearchBar row="0" hint="Poz ara.." [(ngModel)]="libraryFormData.searchText" (submit)="onSubmit($event)" (clear)="onClear($event)"></SearchBar>
-	<RadListView row="1" [items]="_libraryWorkItems" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
+<GridLayout rows="auto, *" (loaded)="onSearchLayoutLoaded($event)">
+	<SearchBar row="0" hint="Poz ara.." [(ngModel)]="libraryFormData.searchText" (submit)="onSubmit($event)" (clear)="onClear($event)" (loaded)="onSearchBarLoaded($event)"></SearchBar>
+	<RadListView row="1" [items]="lwiService._libraryWorkItems" loadOnDemandMode="Manuel" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
 		<ng-template tkListItemTemplate let-item="item">
 			<CardView elevation="8" margin="8" radius="8">
 				<Ripple (tap)="onTapCard($event, item)">
 					<StackLayout orientation="vertical" style="padding: 20px; margin: 20px;">
 						<StackLayout orientation="horizontal" style="padding-bottom: 10;">
 							<Label class="nameLabel" [text]="item.Number" style="text-decoration: underline; color: #0071bc; font-weight: bold; font-size: 20;" textWrap="true"></Label>
-							<Label class="nameLabel" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="color: #ed2024; font-size: 20;"></Label>
-							<Label class="nameLabel" [text]="item.Unit" style="color: #ed2024; font-size: 20;" textWrap="true"></Label>
-							<Label class="nameLabel" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="color: #ed2024; font-size: 20;"></Label>
+							<Label class="nameLabel" width="10" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="text-align: center; color: #ed2024; font-size: 20;"></Label>
+							<Label class="nameLabel" width="50" [text]="item.Unit" style="text-align: center; color: #ed2024; font-size: 20;" textWrap="true"></Label>
+							<Label class="nameLabel" width="10" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="text-align: center; color: #ed2024; font-size: 20;"></Label>
 							<Label class="nameLabel" [text]="item.LibraryBookAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
 							<Label class="nameLabel" text=" - " style="margin-top: 8; color: #39b54a; font-size: 12;"></Label>
 							<Label class="nameLabel" [text]="item.LibraryFascicleAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>

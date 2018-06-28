@@ -1,6 +1,6 @@
 <GridLayout rows="*" height="100%" width="100%">
 	<StackLayout row="0" orientation="horizontal" class="commands">
-		<TabView class="tab-view" class="fa" selectedIndex="2" (selectedIndexChange)="onIndexChanged($event)">
+		<TabView class="tab-view" class="fa" [(ngModel)]="selectedTabIndex" (selectedIndexChange)="onIndexChanged($event)">
 			<StackLayout *tabItem="{title: '&#xf0b0;'}">
 				<router-outlet name="search-filters-outlet"></router-outlet>
 			</StackLayout>
@@ -12,5 +12,5 @@
 			</StackLayout>
 		</TabView>
 	</StackLayout>
-	<FAB id="search-engin" row="0" icon="~/content/images/searchengin.png" (tap)="enginStart($event)" class="fab-button-bottom"></FAB>
+	<FAB *ngIf="selectedTabIndex !== 2" id="search-engin" row="0" icon="~/content/images/searchengin.png" (tap)="enginStart($event)" class="fab-button-bottom"></FAB>
 </GridLayout>

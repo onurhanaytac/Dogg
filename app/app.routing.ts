@@ -24,7 +24,7 @@ import { OskaTreeComponent } from "./pages/shared-components/oska-tree/oska-tree
 export const routes = [
   {
   	path: "",
-    redirectTo: "library",
+    redirectTo: "login",
     pathMatch: 'full'
   },
   {
@@ -49,7 +49,7 @@ export const routes = [
     ]
   },
   {
-    path: "workitem-detail",
+    path: "workitem-detail/:libraryWorkItemId",
     component: WorkItemDetailComponent,
   },
   {
