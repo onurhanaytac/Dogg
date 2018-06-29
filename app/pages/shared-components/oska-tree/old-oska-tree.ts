@@ -147,7 +147,6 @@ export class OskaTreeComponent implements OnInit {
 
 	public selectFirstNode() {
 		this._treeItems
-		debugger
 		this.selectItem(this._treeItems[0])
 	}
 

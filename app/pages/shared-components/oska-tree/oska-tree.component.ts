@@ -26,7 +26,26 @@ export class OskaTreeComponent implements OnInit {
 		this.treeCheckedChange.emit(treeItem);
 	}
 
-	private prepareData(_data: any) {
+	private checkParent(treeItem: ITreeItem) {
+		this.findParent(this.dataSource.data, treeItem);
+	}
+
+	private findParent(data, tItem) {
+		_.each(data, item => {
+			if (item.children && item.children.length) {
+				let checkedChildCount = _.filter(item.children, { checked: true }).length;
+				if (checkedChildCount === item.children.length) {
+					item.checked = true;
+					debugger
+					this.findParent(item.children, tItem);
+				} else {
+					item.checked = false;
+				}
+			}
+		})
+	}
+
+	public prepareData(_data: any) {
 		_data = this.getChildren(_data);
 		this.findCurrentBiggestIntId(_data);
 		this.giveIdToAllItems(_data);
@@ -81,6 +100,24 @@ export class OskaTreeComponent implements OnInit {
 		})
 	}
 
+	public selectFromLibraryBookFascicleIds(ids) {
+		_.each(ids, id => {
+			this.findFascicleInTree(this.dataSource.data, id.LibraryFascicleId, id.LibraryBookId);
+		});
+	}
+
+	private findFascicleInTree(data, fId, bId) {
+		_.each(data, item => {
+			if (item.LibraryFascicleId === fId) {
+				item.checked = true;
+			}
+
+			if (item.children.length && item.LibraryBookId === bId) {
+				this.findFascicleInTree(item.children, fId, bId);
+			}
+		});
+	}
+
 	public selectFirstSmallestChild(data) {
 		if (!data) {
 			data = this.dataSource.data;
@@ -90,8 +127,11 @@ export class OskaTreeComponent implements OnInit {
 			return this.selectFirstSmallestChild(data[0].children)
 		}
 
+		if (!data.length) {
+			return;
+		}
+
 		data[0].checked = true;
-		debugger
 
 	}
 

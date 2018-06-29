@@ -18,7 +18,13 @@ export class LibraryFormDataService {
   }
 
   set libraryFormData(lfd: LibraryFormData) {
-  	this._libraryFormData = lfd;
+    this._libraryFormData.includeObsoleteWorkItems = lfd.includeObsoleteWorkItems;
+    this._libraryFormData.libraryBookFascicleIds = lfd.libraryBookFascicleIds;
+    this._libraryFormData.page = lfd.page;
+    this._libraryFormData.pageSize = lfd.pageSize;
+    this._libraryFormData.searchInTermsOfProduction = lfd.searchInTermsOfProduction;
+    this._libraryFormData.searchText = lfd.searchText;
+    this._libraryFormData.selectedYear = lfd.selectedYear;
   }
 
 

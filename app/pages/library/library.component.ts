@@ -11,6 +11,7 @@ import { _ } from "lodash";
 import { DismissSoftKeybaord } from "../../shared/DismissSoftKeybaord";
 import { OskaTreeDataSourceService } from '../shared-components/oska-tree/oska-tree-datasource.service';
 
+const localStorage = require( "nativescript-localstorage" );
 const LoadingIndicator = require("nativescript-loading-indicator").LoadingIndicator;
 
 @Component({
@@ -24,11 +25,9 @@ const LoadingIndicator = require("nativescript-loading-indicator").LoadingIndica
 export class LibraryComponent {
 	constructor(public page: Page, private _router: Router, private frame: Frame, public lfdService: LibraryFormDataService, public lwiService: LibraryWorkItemService) {
 		this._frame = frame;
-		this._libraryFormData = lfdService.libraryFormData;
 	}
 
 	private _frame: Frame;
-	private _libraryFormData: LibraryFormData;
 	public selectedTabIndex = 0;
 	private loader;
 	private loaderoptions;
@@ -56,9 +55,10 @@ export class LibraryComponent {
 		let self = this;
 
 		this.selectedTabIndex = 1;
-
     this.lfdService.libraryFormData.page = 1;
 
+    localStorage.setItem("libraryFormData", JSON.stringify(this.lfdService.libraryFormData));
+    debugger
     DismissSoftKeybaord.dismiss();
 
     this.loader.show(this.loaderoptions);

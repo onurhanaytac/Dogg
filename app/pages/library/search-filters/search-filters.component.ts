@@ -10,6 +10,9 @@ import { LibraryComponent } from "../library.component";
 import { Frame, topmost } from "tns-core-modules/ui/frame";
 import { LibraryWorkItemService } from "../../../shared/library/library-workitem.service";
 
+const localStorage = require( "nativescript-localstorage" );
+const LoadingIndicator = require("nativescript-loading-indicator").LoadingIndicator;
+
 @Component({
 	selector: "search-filters",
 	templateUrl: "./pages/library/search-filters/search-filters.html",
@@ -21,17 +24,14 @@ export class SearchFiltersComponent {
 	public _data: any;
 	public _properties: any;
 	public _fromChild: any;
-	public libraryFormData: LibraryFormData;
-	public unitPriceYears: string[] = [];
+	public unitPriceYears: any = [];
+	private loader;
+	private loaderoptions;
 
-	constructor(@Host() public libraryComponent: LibraryComponent ,private page: Page, lfdService: LibraryFormDataService, public _frame: Frame, public lwiService: LibraryWorkItemService) {
-		this.libraryFormData = lfdService.libraryFormData;
-		this._data = new Data().libraryBookAndFascicles;
-		this._properties = {
-			id: "LibraryFascicleId",
-			name: "Name",
-			children: "LibraryFascicles",
-			checkbox: true
+	constructor(@Host() public libraryComponent: LibraryComponent ,private page: Page, public lfdService: LibraryFormDataService, public _frame: Frame, public lwiService: LibraryWorkItemService) {
+		let localLfd = JSON.parse(localStorage.getItem("libraryFormData"));
+		if (localLfd && localLfd.libraryBookFascicleIds) {
+			lfdService.libraryFormData = localLfd;
 		}
 	}
 
@@ -39,10 +39,10 @@ export class SearchFiltersComponent {
 
 	onTreeCheckedChange(e) {
 		let checkedItems = (this.tree as any).dataSource.data;
-		this.libraryFormData.libraryBookFascicleIds = [];
-		this.getLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
-		if (!this.libraryFormData.libraryBookFascicleIds.length) {
-			this.getAllLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
+		this.lfdService.libraryFormData.libraryBookFascicleIds = [];
+		this.getLibraryBookFascicleIds(checkedItems, this.lfdService.libraryFormData.libraryBookFascicleIds);
+		if (!this.lfdService.libraryFormData.libraryBookFascicleIds.length) {
+			this.getAllLibraryBookFascicleIds(checkedItems, this.lfdService.libraryFormData.libraryBookFascicleIds);
 		}
 	}
 
@@ -91,16 +91,21 @@ export class SearchFiltersComponent {
 		};
 
 		dialogs.action(options).then((result) => {
-			this.libraryFormData.selectedYear = isNaN(parseInt(result)) ? this.libraryFormData.selectedYear : result.toString();
+			this.lfdService.libraryFormData.selectedYear = isNaN(parseInt(result)) ? this.lfdService.libraryFormData.selectedYear : result.toString();
 			this.libraryComponent.selectedTabIndex = 1;
 		});
 
 	}
 
-	treeLoaded() {
-		(this.tree as any).selectFirstSmallestChild();
-		// let checkedItems = (this.tree as any).dataSource.data;
-		// this.getAllLibraryBookFascicleIds(checkedItems, this.libraryFormData.libraryBookFascicleIds);
+	onTreeLoaded(evt) {
+		let tree = (this.tree as any);
+		let localLfd = JSON.parse(localStorage.getItem("libraryFormData"))
+		setTimeout(() => {
+			if (localLfd.libraryBookFascicleIds.length) {
+				return tree.selectFromLibraryBookFascicleIds(localLfd.libraryBookFascicleIds);
+			}
+			tree.selectFirstSmallestChild();
+		}, 0)
 	}
 
 	prepareUnitPrices(data) {
@@ -117,12 +122,50 @@ export class SearchFiltersComponent {
 		return data
 	}
 
-	ngOnInit() {
-		let minYear = 2003;
-		let maxYear = 2019;
+	private getViewData() {
+		let self = this;
+		this._properties = {
+			id: "LibraryFascicleId",
+			name: "Name",
+			children: "LibraryFascicles",
+			checkbox: true
+		};
 
-		for (var i = maxYear - 1; i >= minYear; i--) {
-			this.unitPriceYears.push(i.toString());
-		}
+		this.loader.show(this.loaderoptions);
+		this.lwiService.booksAndFascicles.subscribe(data => {
+			self._data = data;
+			(this.tree as any).prepareData(self._data);
+			this.onTreeLoaded("manuel");
+			this.loader.hide();
+			debugger
+		}, error => {
+
+		});
+
+		this.lwiService.priceYears.subscribe(data => {
+			_.each(_.clone(data), item => {
+				self.unitPriceYears.push((data as any).pop().toString());
+			})
+			debugger
+		}, error => {
+
+		});
+	}
+
+	createLoader() {
+		this.loader = new LoadingIndicator();
+
+		this.loaderoptions = {
+		  message: 'Yükleniyor...',
+		  progress: 0.65
+		};
+	}
+
+	ngAfterViewInit() {
+	}
+
+	ngOnInit() {
+		this.createLoader();
+		this.getViewData();
 	}
 }

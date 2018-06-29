@@ -39,6 +39,18 @@ export class LibraryWorkItemService {
   	this._libraryWorkItems = lwi;
   }
 
+
+  get priceYears() {
+    let headers = new HttpHeaders({'Content-Type':  'application/json'});
+    return this.http.get(Config.apiUrl + "/oskaapi/Library/PriceYears", { headers: headers });
+  }
+
+  get booksAndFascicles() {
+    let headers = new HttpHeaders({'Content-Type':  'application/json'});
+    return this.http.get(Config.apiUrl + "/oskaapi/Library/BooksAndFascicles", { headers: headers });
+  }
+
+
   private jsonToQueryString(json) {
     return '?' +
     Object.keys(json).map(function(key) {

@@ -25,6 +25,9 @@ export class TreeComponent implements OnInit {
 	}
 
 	private checkedChange(e, item) {
+		if (item.checked !== e.value) {
+			item.checked = e.value;
+		}
 		if (item.children && item.children.length) {
 			item.collapsed = false;
 			_.each(item.children, child => {
