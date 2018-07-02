@@ -7,18 +7,17 @@
 					<StackLayout orientation="vertical" style="padding: 20px; margin: 20px;">
 						<StackLayout orientation="horizontal" style="padding-bottom: 10;">
 							<Label class="nameLabel" [text]="item.Number" style="text-decoration: underline; color: #0071bc; font-weight: bold; font-size: 20;" textWrap="true"></Label>
-							<Label class="nameLabel" width="10" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="text-align: center; color: #ed2024; font-size: 20;"></Label>
-							<Label class="nameLabel" width="50" [text]="item.Unit" style="text-align: center; color: #ed2024; font-size: 20;" textWrap="true"></Label>
-							<Label class="nameLabel" width="10" text=" . " *ngIf="item.Unit && item.Unit !== ' '" style="text-align: center; color: #ed2024; font-size: 20;"></Label>
-							<Label class="nameLabel" [text]="item.LibraryBookAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
-							<Label class="nameLabel" text=" - " style="margin-top: 8; color: #39b54a; font-size: 12;"></Label>
+
+							<Label class="nameLabel" width="50" [text]="item.Unit" *ngIf="item.Unit && item.Unit !== ' '" style="margin-left: 5; text-align: center; color: #ed2024; font-size: 20;" textWrap="true"></Label>
+
+							<Label class="nameLabel" [text]="item.LibraryBookAbbreviation + ' - '" style="margin-left: 5; margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
 							<Label class="nameLabel" [text]="item.LibraryFascicleAbbreviation" style="margin-top: 7; color: #39b54a; font-size: 12;" textWrap="true"></Label>
 						</StackLayout>
 
 						<StackLayout *ngIf="item.LibraryWorkItemPrices[0]" orientation="horizontal" style="padding-top: 10; padding-bottom: 10;" class="border-bottom border-top">
 							<Label class="nameLabel" [text]="libraryFormData.selectedYear" textWrap="true"></Label>
 							<Label class="nameLabel" text=" yılı birim fiyatı: "></Label>
-							<Label class="nameLabel" [text]="item._libraryWorkItemUnitPrices[libraryFormData.selectedYear]" textWrap="true"></Label>
+							<Label class="nameLabel" [text]="item._libraryWorkItemUnitPrices[libraryFormData.selectedYear]" textWrap="true" style="font-weight: bold;"></Label>
 						</StackLayout>
 
 						<StackLayout style="padding-top: 10;">

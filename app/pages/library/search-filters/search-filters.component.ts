@@ -38,21 +38,26 @@ export class SearchFiltersComponent {
 	@ViewChild('LibraryWorkItemBooks') tree: ElementRef;
 
 	onTreeCheckedChange(e) {
-		let checkedItems = (this.tree as any).dataSource.data;
-		this.lfdService.libraryFormData.libraryBookFascicleIds = [];
-		this.getLibraryBookFascicleIds(checkedItems, this.lfdService.libraryFormData.libraryBookFascicleIds);
-		if (!this.lfdService.libraryFormData.libraryBookFascicleIds.length) {
-			this.getAllLibraryBookFascicleIds(checkedItems, this.lfdService.libraryFormData.libraryBookFascicleIds);
-		}
+		this.getFascicleIds();
 	}
 
-	getAllLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
+	private getFascicleIds() {
+		this.lfdService.libraryFormData.libraryBookFascicleIds = [];
+		this.getLibraryBookFascicleIds((this.tree as any).dataSource.data, this.lfdService.libraryFormData.libraryBookFascicleIds);
+		if (this.lfdService.libraryFormData.libraryBookFascicleIds.length === 0) {
+			this.getAllLibraryBookFascicleIds((this.tree as any).dataSource.data, this.lfdService.libraryFormData.libraryBookFascicleIds)
+		}
+
+		this.lfdService.libraryFormData.libraryBookFascicleIds
+	}
+
+	public getLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
 		_.each(nodes, node => {
 			if (node.children.length) {
 				return this.getLibraryBookFascicleIds(node.children, checkedNodes, node.LibraryBookId);
 			}
 
-			if (node.checked) {
+			if (node.checkedFly) {
 				checkedNodes.push({
 					LibraryBookId: node.LibraryBookId ? node.LibraryBookId : parentId,
 					LibraryFascicleId: node.LibraryFascicleId ? node.LibraryFascicleId : null
@@ -62,19 +67,18 @@ export class SearchFiltersComponent {
 		});
 	}
 
-	public getLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
+	public getAllLibraryBookFascicleIds(nodes, libraryBookFascicleIds, parentId?) {
 		_.each(nodes, node => {
 			if (node.children.length) {
-				return this.getLibraryBookFascicleIds(node.children, checkedNodes, node.LibraryBookId);
+				return this.getAllLibraryBookFascicleIds(node.children, libraryBookFascicleIds, node.LibraryBookId);
 			}
 
-			if (node.checked) {
-				checkedNodes.push({
+			if (!node.checked) {
+				libraryBookFascicleIds.push({
 					LibraryBookId: node.LibraryBookId ? node.LibraryBookId : parentId,
 					LibraryFascicleId: node.LibraryFascicleId ? node.LibraryFascicleId : null
 				});
 			}
-
 		});
 	}
 
@@ -137,7 +141,6 @@ export class SearchFiltersComponent {
 			(this.tree as any).prepareData(self._data);
 			this.onTreeLoaded("manuel");
 			this.loader.hide();
-			debugger
 		}, error => {
 
 		});
@@ -146,7 +149,6 @@ export class SearchFiltersComponent {
 			_.each(_.clone(data), item => {
 				self.unitPriceYears.push((data as any).pop().toString());
 			})
-			debugger
 		}, error => {
 
 		});
@@ -156,8 +158,8 @@ export class SearchFiltersComponent {
 		this.loader = new LoadingIndicator();
 
 		this.loaderoptions = {
-		  message: 'Yükleniyor...',
-		  progress: 0.65
+			message: 'Yükleniyor...',
+			progress: 0.65
 		};
 	}
 

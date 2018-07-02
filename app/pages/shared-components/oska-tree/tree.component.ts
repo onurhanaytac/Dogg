@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, HostListener, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { _ } from "lodash";
 import { Frame, topmost } from "tns-core-modules/ui/frame";
+import { Page } from "ui/page";
 import { Color } from 'color';
 import { OskaTreeDataSourceService } from './oska-tree-datasource.service';
 
@@ -12,7 +13,7 @@ import { OskaTreeDataSourceService } from './oska-tree-datasource.service';
 
 export class TreeComponent implements OnInit {
 
-	constructor(public elRef: ElementRef, public frame: Frame, public dataSource: OskaTreeDataSourceService) {
+	constructor(public elRef: ElementRef, public page: Page, public frame: Frame, public dataSource: OskaTreeDataSourceService) {
 	}
 
 	@Input()
@@ -25,9 +26,7 @@ export class TreeComponent implements OnInit {
 	}
 
 	private checkedChange(e, item) {
-		if (item.checked !== e.value) {
-			item.checked = e.value;
-		}
+		item.checkedFly = e.value;
 		if (item.children && item.children.length) {
 			item.collapsed = false;
 			_.each(item.children, child => {

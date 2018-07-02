@@ -58,7 +58,7 @@ export class LibraryComponent {
     this.lfdService.libraryFormData.page = 1;
 
     localStorage.setItem("libraryFormData", JSON.stringify(this.lfdService.libraryFormData));
-    debugger
+
     DismissSoftKeybaord.dismiss();
 
     this.loader.show(this.loaderoptions);
@@ -84,20 +84,6 @@ export class LibraryComponent {
 		});
 
 		return data
-	}
-
-	public getAllLibraryBookFascicleIds(nodes, checkedNodes, parentId?) {
-		_.each(nodes, node => {
-			if (node.children.length) {
-				return this.getAllLibraryBookFascicleIds(node.children, checkedNodes, node.LibraryBookId);
-			}
-
-			checkedNodes.push({
-				LibraryBookId: node.LibraryBookId ? node.LibraryBookId : parentId,
-				LibraryFascicleId: node.LibraryFascicleId ? node.LibraryFascicleId : null
-			});
-
-		});
 	}
 
 	createLoader() {

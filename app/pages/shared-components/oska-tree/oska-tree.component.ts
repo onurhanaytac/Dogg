@@ -108,9 +108,10 @@ export class OskaTreeComponent implements OnInit {
 
 	private findFascicleInTree(data, fId, bId) {
 		_.each(data, item => {
-			if (item.LibraryFascicleId === fId) {
+			if (item.LibraryFascicleId === fId || (!item.LibraryFascicles.length && item.LibraryBookId === bId)) {
 				item.checked = true;
 			}
+
 
 			if (item.children.length && item.LibraryBookId === bId) {
 				this.findFascicleInTree(item.children, fId, bId);
